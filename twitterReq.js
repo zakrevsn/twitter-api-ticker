@@ -1,4 +1,10 @@
-const secrets = require("./secrets");
+let secrets;
+if (process.env.NODE_ENV == "production") {
+    secrets = process.env; // in prod the secrets are environment variables
+} else {
+    secrets = require("./secrets"); // secrets.json is in .gitignore
+}
+
 const https = require("https");
 
 module.exports.getToken = function getToken() {
