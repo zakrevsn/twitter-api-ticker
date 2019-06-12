@@ -25,4 +25,4 @@ app.get("/data.json", (req, res) => {
     });
 });
 
-app.listen(8080, () => console.log("listening!"));
+app.listen(process.env.PORT || 8080, () => console.log("listening!"));
